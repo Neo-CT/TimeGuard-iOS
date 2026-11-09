@@ -92,7 +92,9 @@ struct MatrixView: View {
                                                set: { if !$0 { editTarget = nil } })) {
             TextField("要做什么？", text: Binding(
                 get: { editTarget?.1 ?? "" },
-                set: { editTarget?.1 = $0 }))
+                set: { newValue in
+                    if let e = editTarget { editTarget = (e.0, newValue) }
+                }))
             Button("保存") {
                 if let e = editTarget { store.updateTodo(e.0, text: e.1) }
                 editTarget = nil

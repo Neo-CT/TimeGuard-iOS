@@ -83,7 +83,9 @@ struct TodoView: View {
         ) {
             TextField("清单名称", text: Binding(
                 get: { renamePrompt?.1 ?? "" },
-                set: { renamePrompt?.1 = $0 }))
+                set: { newValue in
+                    if let p = renamePrompt { renamePrompt = (p.0, newValue) }
+                }))
             Button("保存") {
                 if let p = renamePrompt { store.renameList(p.0, name: p.1) }
                 renamePrompt = nil
@@ -149,7 +151,9 @@ struct TodoView: View {
         ) {
             TextField("要做什么？", text: Binding(
                 get: { editTarget?.1 ?? "" },
-                set: { editTarget?.1 = $0 }))
+                set: { newValue in
+                    if let e = editTarget { editTarget = (e.0, newValue) }
+                }))
             Button("保存") {
                 if let e = editTarget { store.updateTodo(e.0, text: e.1) }
                 editTarget = nil

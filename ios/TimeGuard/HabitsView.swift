@@ -103,7 +103,11 @@ struct HabitsView: View {
                                 .frame(width: 32, height: 32)
                                 .background(done ? TG.brand : Color(hex: 0xF0F7F4))
                                 .clipShape(Circle())
-                                .overlay(isToday && !done ? Circle().stroke(TG.brand, lineWidth: 1.5) : nil)
+                                .overlay {
+                                    if isToday && !done {
+                                        Circle().stroke(TG.brand, lineWidth: 1.5)
+                                    }
+                                }
                         }
                         .buttonStyle(.plain)
                         .disabled(isFuture)

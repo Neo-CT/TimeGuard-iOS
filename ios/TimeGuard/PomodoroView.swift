@@ -171,7 +171,7 @@ struct PomodoroView: View {
                     .background(TG.brand)
                     .clipShape(Capsule())
             }
-            Button(reset) {
+            Button(action: reset) {
                 Text("重置")
                     .font(.system(size: 15, weight: .medium))
                     .foregroundColor(TG.textPrimary)
