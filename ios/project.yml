@@ -1,0 +1,31 @@
+name: TimeGuard
+options:
+  bundleIdPrefix: com.neo
+  deploymentTarget:
+    iOS: "16.0"
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+targets:
+  TimeGuard:
+    type: application
+    platform: iOS
+    sources:
+      - path: TimeGuard
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.neo.timeguard
+        MARKETING_VERSION: "0.7.2"
+        CURRENT_PROJECT_VERSION: "1"
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: TimeGuard
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: UIInterfaceOrientationPortrait
+        TARGETED_DEVICE_FAMILY: "1,2"
+        CODE_SIGNING_ALLOWED: NO
+schemes:
+  TimeGuard:
+    build:
+      targets:
+        TimeGuard: all
